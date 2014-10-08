@@ -1,0 +1,25 @@
+scp ../resi_2/karp_* .
+#edit
+
+jcoupling_all.py
+
+scp ../resi_2/conform_angle.dat .
+# edit
+
+Plot_conform.py dihedral_0.10/lfdp_assign.h5
+
+density_peak_from_save.py -m dihedral -i dihedral_0.10 -o dihedral_0.10
+
+combine_LF_DP.py -i dihedral_0.10 -o dihedral_0.10
+
+jcoup_mean.py all -i dihedral_0.10/lfdp_assign.h5 -p 0
+
+mv Data/jcoup_mean.txt Data/theo_mean.dat
+
+subl Data/exp_mean.dat Data/exp_sd.dat
+
+conform_name.py dihedral_0.10/lfdp_assign.h5
+
+file_to_input.py -i Data/ -o Data/ -nc 5 -nd 7
+
+Bayesian.py -p parallel -i Data/ -o Data > result.out

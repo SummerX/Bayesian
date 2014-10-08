@@ -1,0 +1,14 @@
+{
+    "conformation_name": [
+        "Beta", 
+        "PII", 
+        "Alpha", 
+        "Alpha_L", 
+        "Y"
+    ], 
+    "number_experimental_data": 8, 
+    "number_states": 5, 
+    "number_steps": 100000, 
+    "prior": "RC", 
+    "step_width": 0.02
+}
